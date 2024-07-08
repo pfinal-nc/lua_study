@@ -49,3 +49,8 @@ setmetatable(function_b, function_op)
 fraction_s = function_a + function_b
 print(fraction_s.numerator, fraction_s.denominator)
 
+-- 面相对象
+-- 看到有 __index 这个重载, 这个东西主要是重载了 find key 的操作, 这个操作可以让 Lua 变得有点面向对象的 感觉,让其有点像 javascript 的 prototype.
+-- 所谓 __index, 说的明确一点, 如果有两个对象 a 和 b, 想让 b 作为 a的 prototype 只需要:
+
+setmetatable(a, (__index=b))
